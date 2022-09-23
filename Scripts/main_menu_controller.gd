@@ -14,3 +14,5 @@ func open_options():
 func close_options():
 	content.show();
 	options_menu.hide()
+
+

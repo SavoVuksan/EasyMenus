@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://yla45juq1i8g"]
+[gd_scene load_steps=4 format=3 uid="uid://yla45juq1i8g"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu_controller.gd" id="1_00qpk"]
-[ext_resource type="PackedScene" uid="uid://cxspb2lmp58if" path="res://Scenes/options_menu.tscn" id="2_5k7rh"]
+[ext_resource type="PackedScene" uid="uid://ifbncut80b7x" path="res://Scenes/options_menu.tscn" id="2_5k7rh"]
+[ext_resource type="AudioStream" uid="uid://cip1iktnyv3pu" path="res://Sneaky-Snitch.mp3" id="3_coqi8"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -14,6 +15,7 @@ script = ExtResource("1_00qpk")
 
 [node name="Content" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -26,6 +28,7 @@ theme_override_constants/separation = 15
 metadata/_edit_group_ = true
 
 [node name="Title" type="Label" parent="Content"]
+layout_mode = 2
 offset_right = 350.0
 offset_bottom = 66.0
 theme_override_font_sizes/font_size = 45
@@ -34,12 +37,14 @@ horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="Content"]
 custom_minimum_size = Vector2i(0, 20)
+layout_mode = 2
 offset_top = 81.0
 offset_right = 350.0
 offset_bottom = 101.0
 
 [node name="StartGameButton" type="Button" parent="Content"]
 custom_minimum_size = Vector2i(350, 0)
+layout_mode = 2
 offset_top = 116.0
 offset_right = 350.0
 offset_bottom = 166.0
@@ -49,6 +54,7 @@ text = "Start"
 
 [node name="OptionsButton" type="Button" parent="Content"]
 custom_minimum_size = Vector2i(350, 0)
+layout_mode = 2
 offset_top = 181.0
 offset_right = 350.0
 offset_bottom = 231.0
@@ -58,6 +64,7 @@ text = "Options"
 
 [node name="QuitButton" type="Button" parent="Content"]
 custom_minimum_size = Vector2i(350, 0)
+layout_mode = 2
 offset_top = 246.0
 offset_right = 350.0
 offset_bottom = 296.0
@@ -68,6 +75,12 @@ text = "Quit"
 [node name="OptionsMenu" parent="." instance=ExtResource("2_5k7rh")]
 unique_name_in_owner = true
 visible = false
+layout_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_coqi8")
+autoplay = true
+bus = &"SFX"
 
 [connection signal="pressed" from="Content/OptionsButton" to="." method="open_options"]
 [connection signal="pressed" from="Content/QuitButton" to="." method="quit"]
