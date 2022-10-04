@@ -5,6 +5,8 @@ signal  close
 @onready var sfx_volume_slider : HSlider = $%SFXVolumeSlider
 @onready var music_volume_slider: HSlider = $%MusicVolumeSlider
 @onready var fullscreen_check_button: CheckButton = $%FullscreenCheckButton
+@onready var render_scale_current_value_label: Label = $%RenderScaleCurrentValueLabel
+@onready var render_scale_slider: HSlider = $%RenderScaleSlider
 
 var sfx_bus_index
 var music_bus_index
@@ -39,6 +41,7 @@ func save_options():
 	config.set_value(OptionsConstants.section_name,OptionsConstants.sfx_volume_key_name, sfx_volume_slider.value)
 	config.set_value(OptionsConstants.section_name, OptionsConstants.music_volume_key_name, music_volume_slider.value)
 	config.set_value(OptionsConstants.section_name, OptionsConstants.fullscreen_key_name, fullscreen_check_button.button_pressed)
+	config.set_value(OptionsConstants.section_name, OptionsConstants.render_scale_key, render_scale_slider.value);
 	config.save(OptionsConstants.config_file_name)
 
 # Loads options and sets the controls values to loaded values. Uses default values if config file
@@ -52,9 +55,13 @@ func load_options():
 	var sfx_volume = config.get_value(OptionsConstants.section_name, OptionsConstants.sfx_volume_key_name, 1)
 	var music_volume = config.get_value(OptionsConstants.section_name, OptionsConstants.music_volume_key_name, 1)
 	var fullscreen = config.get_value(OptionsConstants.section_name, OptionsConstants.fullscreen_key_name, false)
+	var render_scale = config.get_value(OptionsConstants.section_name, OptionsConstants.render_scale_key, 1)
+	
 	sfx_volume_slider.value = sfx_volume
 	music_volume_slider.value = music_volume
 	fullscreen_check_button.button_pressed = fullscreen
+	render_scale_slider.value = render_scale
+	
 
 
 func _on_fullscreen_check_button_toggled(button_pressed):
@@ -65,3 +72,7 @@ func _on_fullscreen_check_button_toggled(button_pressed):
 		if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_WINDOWED:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		
+
+func _on_render_scale_slider_value_changed(value):
+	get_viewport().scaling_3d_scale = value
+	render_scale_current_value_label.text = str(value)

@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://yla45juq1i8g"]
+[gd_scene load_steps=3 format=3 uid="uid://yla45juq1i8g"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu_controller.gd" id="1_00qpk"]
 [ext_resource type="PackedScene" uid="uid://ifbncut80b7x" path="res://Scenes/options_menu.tscn" id="2_5k7rh"]
-[ext_resource type="AudioStream" uid="uid://cip1iktnyv3pu" path="res://Sneaky-Snitch.mp3" id="3_coqi8"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -77,11 +76,7 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_coqi8")
-autoplay = true
-bus = &"SFX"
-
+[connection signal="pressed" from="Content/StartGameButton" to="." method="load_3d_scene"]
 [connection signal="pressed" from="Content/OptionsButton" to="." method="open_options"]
 [connection signal="pressed" from="Content/QuitButton" to="." method="quit"]
 [connection signal="close" from="OptionsMenu" to="." method="close_options"]

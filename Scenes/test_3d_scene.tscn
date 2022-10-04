@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfavpcgnwj8mh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_edqi5"]
+sky_top_color = Color(0.278431, 0.380392, 0.913725, 1)
+sky_horizon_color = Color(0.74902, 0.882353, 0.968627, 1)
+sky_curve = 0.155289
+ground_bottom_color = Color(0.313726, 0.2, 0.294118, 1)
+ground_horizon_color = Color(0.701961, 0.486275, 0.403922, 1)
+ground_energy_multiplier = 2.0
+
+[sub_resource type="Sky" id="Sky_vdxo5"]
+sky_material = SubResource("ProceduralSkyMaterial_edqi5")
+
+[sub_resource type="Environment" id="Environment_wgmla"]
+background_mode = 2
+sky = SubResource("Sky_vdxo5")
+
+[node name="Node3d" type="Node3D"]
+
+[node name="CsgBox3d" type="CSGBox3D" parent="."]
+
+[node name="Camera3d" type="Camera3D" parent="."]
+transform = Transform3D(0.901364, -0.136738, 0.410907, 0, 0.948843, 0.315748, -0.433061, -0.284604, 0.855253, 1.43614, 2.0598, 3.88229)
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, -0.75, 0.433013, 0, 0, 0)
+light_color = Color(0.890196, 0.905882, 0.780392, 1)
+light_energy = 2.0
+light_indirect_energy = 2.0
+
+[node name="LightmapGi" type="LightmapGI" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wgmla")
+
+[node name="Label3d" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77269, 0)
+text = "Bozo and Emil were here. 
+We went to the ICA.
+LOVE  <3"
+font_size = 64

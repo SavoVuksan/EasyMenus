@@ -16,3 +16,6 @@ func close_options():
 	options_menu.hide()
 
 
+# Just a test remove when not needed anymore
+func load_3d_scene():
+	get_tree().change_scene_to_file("res://Scenes/test_3d_scene.tscn")

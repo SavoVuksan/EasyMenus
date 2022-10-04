@@ -22,7 +22,7 @@ grow_vertical = 2
 theme_override_constants/separation = 15
 
 [node name="OptionsTitle" type="Label" parent="VBoxContainer"]
-offset_right = 1152.0
+offset_right = 800.0
 offset_bottom = 66.0
 theme_override_font_sizes/font_size = 45
 text = "Options"
@@ -30,24 +30,24 @@ horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 offset_top = 81.0
-offset_right = 1152.0
+offset_right = 800.0
 offset_bottom = 91.0
 theme_override_constants/separation = 10
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 offset_top = 106.0
-offset_right = 1152.0
+offset_right = 800.0
 offset_bottom = 226.0
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_right = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
 offset_left = 100.0
-offset_right = 1052.0
+offset_right = 700.0
 offset_bottom = 120.0
 
 [node name="SFXVolumeLabel" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer"]
-offset_right = 952.0
+offset_right = 600.0
 offset_bottom = 38.0
 theme_override_font_sizes/font_size = 25
 text = "SFX Volume"
@@ -56,14 +56,14 @@ horizontal_alignment = 1
 [node name="SFXVolumeSlider" type="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 offset_top = 42.0
-offset_right = 952.0
+offset_right = 600.0
 offset_bottom = 58.0
 max_value = 1.0
 step = 0.01
 
 [node name="MusicVolumeLabel" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer"]
 offset_top = 62.0
-offset_right = 952.0
+offset_right = 600.0
 offset_bottom = 100.0
 theme_override_font_sizes/font_size = 25
 text = "Music Volume"
@@ -72,41 +72,81 @@ horizontal_alignment = 1
 [node name="MusicVolumeSlider" type="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 offset_top = 104.0
-offset_right = 952.0
+offset_right = 600.0
 offset_bottom = 120.0
 max_value = 1.0
 step = 0.01
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
 offset_top = 241.0
-offset_right = 1152.0
+offset_right = 800.0
 offset_bottom = 251.0
 theme_override_constants/separation = 10
 
 [node name="FullscreenCheckButton" type="CheckButton" parent="VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2i(200, 0)
-offset_left = 476.0
+offset_left = 300.0
 offset_top = 266.0
-offset_right = 676.0
+offset_right = 500.0
 offset_bottom = 309.0
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 25
 text = "Fullscreen"
 
-[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 offset_top = 324.0
-offset_right = 1152.0
-offset_bottom = 374.0
+offset_right = 800.0
+offset_bottom = 417.0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2"]
+offset_left = 100.0
+offset_right = 700.0
+offset_bottom = 93.0
+
+[node name="RenderScaleLabel" type="Label" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
+offset_right = 600.0
+offset_bottom = 38.0
+theme_override_font_sizes/font_size = 25
+text = "Render Scale"
+horizontal_alignment = 1
+
+[node name="RenderScaleSlider" type="HSlider" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
+unique_name_in_owner = true
+offset_top = 42.0
+offset_right = 600.0
+offset_bottom = 58.0
+tooltip_text = "Scale Less than 1 to get performance improve. 
+Scale to more than 1 to improve image quality."
+min_value = 0.25
+max_value = 2.0
+step = 0.05
+value = 1.0
+
+[node name="RenderScaleCurrentValueLabel" type="Label" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
+unique_name_in_owner = true
+offset_top = 62.0
+offset_right = 600.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 20
+text = "1"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+offset_top = 432.0
+offset_right = 800.0
+offset_bottom = 482.0
 theme_override_constants/separation = 50
 theme_override_styles/separator = SubResource("StyleBoxEmpty_x77mt")
 
 [node name="BackButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2i(350, 0)
-offset_left = 401.0
-offset_top = 389.0
-offset_right = 751.0
-offset_bottom = 432.0
+offset_left = 225.0
+offset_top = 497.0
+offset_right = 575.0
+offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -117,4 +157,5 @@ text = "Back"
 [connection signal="value_changed" from="VBoxContainer/MarginContainer/VBoxContainer/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/MarginContainer/VBoxContainer/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
 [connection signal="toggled" from="VBoxContainer/FullscreenCheckButton" to="." method="_on_fullscreen_check_button_toggled"]
+[connection signal="value_changed" from="VBoxContainer/MarginContainer2/VBoxContainer/RenderScaleSlider" to="." method="_on_render_scale_slider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="go_back"]

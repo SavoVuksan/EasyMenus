@@ -22,10 +22,20 @@ _global_script_class_icons={
 
 config/name="TemplateUI"
 run/main_scene="res://Scenes/main_menu.tscn"
-config/features=PackedStringArray("4.0", "Vulkan Clustered")
+config/features=PackedStringArray("4.0")
 config/icon="res://icon.svg"
 
 [autoload]
 
 OptionsConstants="*res://Scripts/options_constants.gd"
 StartupLoader="*res://Scripts/startup_loader.gd"
+
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=600
+window/size/fullscreen=true
+
+[rendering]
+
+scaling_3d/mode=1
