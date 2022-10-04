@@ -14,6 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_jja00")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -22,6 +23,7 @@ grow_vertical = 2
 theme_override_constants/separation = 15
 
 [node name="OptionsTitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
 offset_right = 800.0
 offset_bottom = 66.0
 theme_override_font_sizes/font_size = 45
@@ -29,12 +31,14 @@ text = "Options"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
 offset_top = 81.0
 offset_right = 800.0
 offset_bottom = 91.0
 theme_override_constants/separation = 10
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
 offset_top = 106.0
 offset_right = 800.0
 offset_bottom = 226.0
@@ -42,11 +46,13 @@ theme_override_constants/margin_left = 100
 theme_override_constants/margin_right = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
 offset_left = 100.0
 offset_right = 700.0
 offset_bottom = 120.0
 
 [node name="SFXVolumeLabel" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
 offset_right = 600.0
 offset_bottom = 38.0
 theme_override_font_sizes/font_size = 25
@@ -55,6 +61,7 @@ horizontal_alignment = 1
 
 [node name="SFXVolumeSlider" type="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 offset_top = 42.0
 offset_right = 600.0
 offset_bottom = 58.0
@@ -62,6 +69,7 @@ max_value = 1.0
 step = 0.01
 
 [node name="MusicVolumeLabel" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
 offset_top = 62.0
 offset_right = 600.0
 offset_bottom = 100.0
@@ -71,6 +79,7 @@ horizontal_alignment = 1
 
 [node name="MusicVolumeSlider" type="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 offset_top = 104.0
 offset_right = 600.0
 offset_bottom = 120.0
@@ -78,6 +87,7 @@ max_value = 1.0
 step = 0.01
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
 offset_top = 241.0
 offset_right = 800.0
 offset_bottom = 251.0
@@ -86,6 +96,7 @@ theme_override_constants/separation = 10
 [node name="FullscreenCheckButton" type="CheckButton" parent="VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2i(200, 0)
+layout_mode = 2
 offset_left = 300.0
 offset_top = 266.0
 offset_right = 500.0
@@ -97,6 +108,7 @@ text = "Fullscreen"
 [node name="VSyncCheckButton" type="CheckButton" parent="VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2i(200, 0)
+layout_mode = 2
 offset_left = 300.0
 offset_top = 324.0
 offset_right = 500.0
@@ -107,6 +119,7 @@ theme_override_font_sizes/font_size = 25
 text = "V-Sync"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
 offset_top = 382.0
 offset_right = 800.0
 offset_bottom = 475.0
@@ -114,6 +127,7 @@ theme_override_constants/margin_left = 100
 theme_override_constants/margin_right = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
 offset_left = 100.0
 offset_right = 700.0
 offset_bottom = 93.0
@@ -121,6 +135,7 @@ tooltip_text = "Scale Less than 1 to get performance improve.
 Scale to more than 1 to improve image quality."
 
 [node name="RenderScaleLabel" type="Label" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
 offset_right = 600.0
 offset_bottom = 38.0
 theme_override_font_sizes/font_size = 25
@@ -129,6 +144,7 @@ horizontal_alignment = 1
 
 [node name="RenderScaleSlider" type="HSlider" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 offset_top = 42.0
 offset_right = 600.0
 offset_bottom = 58.0
@@ -139,6 +155,7 @@ value = 1.0
 
 [node name="RenderScaleCurrentValueLabel" type="Label" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 offset_top = 62.0
 offset_right = 600.0
 offset_bottom = 93.0
@@ -146,19 +163,75 @@ theme_override_font_sizes/font_size = 20
 text = "1"
 horizontal_alignment = 1
 
-[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+[node name="AntiAliasing2DLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
 offset_top = 490.0
 offset_right = 800.0
-offset_bottom = 540.0
+offset_bottom = 528.0
+theme_override_font_sizes/font_size = 25
+text = "2D Anti Aliasing"
+horizontal_alignment = 1
+
+[node name="AntiAliasing2DOptionButton" type="OptionButton" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_top = 543.0
+offset_right = 800.0
+offset_bottom = 574.0
+tooltip_text = "Smooth out edges of 2D objects"
+item_count = 4
+selected = 0
+popup/item_0/text = "Off"
+popup/item_0/id = 0
+popup/item_1/text = "2x"
+popup/item_1/id = 1
+popup/item_2/text = "4x"
+popup/item_2/id = 2
+popup/item_3/text = "8x"
+popup/item_3/id = 3
+
+[node name="AntiAliasing3DLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+offset_top = 589.0
+offset_right = 800.0
+offset_bottom = 627.0
+theme_override_font_sizes/font_size = 25
+text = "3D Anti Aliasing"
+horizontal_alignment = 1
+
+[node name="AntiAliasing3DOptionButton" type="OptionButton" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_top = 642.0
+offset_right = 800.0
+offset_bottom = 673.0
+tooltip_text = "Smooths out edges of 3D objects"
+item_count = 4
+selected = 0
+popup/item_0/text = "Off"
+popup/item_0/id = 0
+popup/item_1/text = "2x"
+popup/item_1/id = 1
+popup/item_2/text = "4x"
+popup/item_2/id = 2
+popup/item_3/text = "8x"
+popup/item_3/id = 3
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+offset_top = 688.0
+offset_right = 800.0
+offset_bottom = 738.0
 theme_override_constants/separation = 50
 theme_override_styles/separator = SubResource("StyleBoxEmpty_x77mt")
 
 [node name="BackButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2i(350, 0)
+layout_mode = 2
 offset_left = 225.0
-offset_top = 555.0
+offset_top = 753.0
 offset_right = 575.0
-offset_bottom = 598.0
+offset_bottom = 796.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -171,4 +244,6 @@ text = "Back"
 [connection signal="toggled" from="VBoxContainer/FullscreenCheckButton" to="." method="_on_fullscreen_check_button_toggled"]
 [connection signal="toggled" from="VBoxContainer/VSyncCheckButton" to="." method="_on_v_sync_check_button_toggled"]
 [connection signal="value_changed" from="VBoxContainer/MarginContainer2/VBoxContainer/RenderScaleSlider" to="." method="_on_render_scale_slider_value_changed"]
+[connection signal="item_selected" from="VBoxContainer/AntiAliasing2DOptionButton" to="." method="_on_anti_aliasing_2d_option_button_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/AntiAliasing3DOptionButton" to="." method="_on_anti_aliasing_3d_option_button_item_selected"]
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="go_back"]

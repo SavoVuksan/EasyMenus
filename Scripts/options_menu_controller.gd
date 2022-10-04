@@ -8,6 +8,8 @@ signal  close
 @onready var render_scale_current_value_label: Label = $%RenderScaleCurrentValueLabel
 @onready var render_scale_slider: HSlider = $%RenderScaleSlider
 @onready var vsync_check_button: CheckButton = $%VSyncCheckButton
+@onready var anti_aliasing_2d_option_button: OptionButton = $%AntiAliasing2DOptionButton
+@onready var anti_aliasing_3d_option_button: OptionButton = $%AntiAliasing3DOptionButton
 
 var sfx_bus_index
 var music_bus_index
@@ -35,7 +37,6 @@ func _on_music_volume_slider_value_changed(value):
 # Sets the volume for the given audio bus
 func set_volume(bus_index, value):
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
-	print(bus_index, AudioServer.get_bus_volume_db(bus_index))
 	
 # Saves the options when the options menu is closed
 func save_options():
@@ -44,6 +45,9 @@ func save_options():
 	config.set_value(OptionsConstants.section_name, OptionsConstants.fullscreen_key_name, fullscreen_check_button.button_pressed)
 	config.set_value(OptionsConstants.section_name, OptionsConstants.render_scale_key, render_scale_slider.value);
 	config.set_value(OptionsConstants.section_name, OptionsConstants.vsync_key, vsync_check_button.button_pressed)
+	config.set_value(OptionsConstants.section_name, OptionsConstants.msaa_2d_key, anti_aliasing_2d_option_button.get_selected_id())
+	config.set_value(OptionsConstants.section_name, OptionsConstants.msaa_3d_key, anti_aliasing_3d_option_button.get_selected_id())
+	
 	config.save(OptionsConstants.config_file_name)
 
 # Loads options and sets the controls values to loaded values. Uses default values if config file
@@ -59,16 +63,22 @@ func load_options():
 	var fullscreen = config.get_value(OptionsConstants.section_name, OptionsConstants.fullscreen_key_name, false)
 	var render_scale = config.get_value(OptionsConstants.section_name, OptionsConstants.render_scale_key, 1)
 	var vsync = config.get_value(OptionsConstants.section_name, OptionsConstants.vsync_key, true)
-	print(vsync)
+	var msaa_2d = config.get_value(OptionsConstants.section_name, OptionsConstants.msaa_2d_key, 0)
+	var msaa_3d = config.get_value(OptionsConstants.section_name, OptionsConstants.msaa_3d_key, 0)
+	
 	sfx_volume_slider.value = sfx_volume
 	music_volume_slider.value = music_volume
 	fullscreen_check_button.button_pressed = fullscreen
 	render_scale_slider.value = render_scale
+	
+	# Need to set it like that to guarantee signal to be triggered
 	vsync_check_button.set_pressed_no_signal(vsync)
 	vsync_check_button.emit_signal("toggled", vsync)
 	
-	
-
+	anti_aliasing_2d_option_button.selected = msaa_2d
+	anti_aliasing_2d_option_button.emit_signal("item_selected", msaa_2d)
+	anti_aliasing_3d_option_button.selected = msaa_3d
+	anti_aliasing_3d_option_button.emit_signal("item_selected", msaa_3d)
 
 func _on_fullscreen_check_button_toggled(button_pressed):
 	if button_pressed:
@@ -93,3 +103,21 @@ func _on_v_sync_check_button_toggled(button_pressed):
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 	else:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+
+
+func _on_anti_aliasing_2d_option_button_item_selected(index):
+	set_msaa("msaa_2d", index)
+
+func _on_anti_aliasing_3d_option_button_item_selected(index):
+	set_msaa("msaa_3d", index)
+
+func set_msaa(mode, index):
+	match index:
+		0:
+			get_viewport().set(mode,Viewport.MSAA_DISABLED)
+		1:
+			get_viewport().set(mode,Viewport.MSAA_2X)
+		2:
+			get_viewport().set(mode,Viewport.MSAA_4X)
+		3:
+			get_viewport().set(mode,Viewport.MSAA_8X)
