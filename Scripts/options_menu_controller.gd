@@ -7,6 +7,7 @@ signal  close
 @onready var fullscreen_check_button: CheckButton = $%FullscreenCheckButton
 @onready var render_scale_current_value_label: Label = $%RenderScaleCurrentValueLabel
 @onready var render_scale_slider: HSlider = $%RenderScaleSlider
+@onready var vsync_check_button: CheckButton = $%VSyncCheckButton
 
 var sfx_bus_index
 var music_bus_index
@@ -42,6 +43,7 @@ func save_options():
 	config.set_value(OptionsConstants.section_name, OptionsConstants.music_volume_key_name, music_volume_slider.value)
 	config.set_value(OptionsConstants.section_name, OptionsConstants.fullscreen_key_name, fullscreen_check_button.button_pressed)
 	config.set_value(OptionsConstants.section_name, OptionsConstants.render_scale_key, render_scale_slider.value);
+	config.set_value(OptionsConstants.section_name, OptionsConstants.vsync_key, vsync_check_button.button_pressed)
 	config.save(OptionsConstants.config_file_name)
 
 # Loads options and sets the controls values to loaded values. Uses default values if config file
@@ -56,11 +58,15 @@ func load_options():
 	var music_volume = config.get_value(OptionsConstants.section_name, OptionsConstants.music_volume_key_name, 1)
 	var fullscreen = config.get_value(OptionsConstants.section_name, OptionsConstants.fullscreen_key_name, false)
 	var render_scale = config.get_value(OptionsConstants.section_name, OptionsConstants.render_scale_key, 1)
-	
+	var vsync = config.get_value(OptionsConstants.section_name, OptionsConstants.vsync_key, true)
+	print(vsync)
 	sfx_volume_slider.value = sfx_volume
 	music_volume_slider.value = music_volume
 	fullscreen_check_button.button_pressed = fullscreen
 	render_scale_slider.value = render_scale
+	vsync_check_button.set_pressed_no_signal(vsync)
+	vsync_check_button.emit_signal("toggled", vsync)
+	
 	
 
 
@@ -76,3 +82,14 @@ func _on_fullscreen_check_button_toggled(button_pressed):
 func _on_render_scale_slider_value_changed(value):
 	get_viewport().scaling_3d_scale = value
 	render_scale_current_value_label.text = str(value)
+
+
+func _on_v_sync_check_button_toggled(button_pressed):
+	# There are multiple V-Sync Methods supported by Godot 
+	# For now we just use the simple ones could be worth a consideration to 
+	# add the others
+	# Just sets V-Sync for the first window. So no support for multi window games
+	if button_pressed:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+	else:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)

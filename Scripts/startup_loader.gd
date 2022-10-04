@@ -18,6 +18,7 @@ func load_settings():
 	var music_volume = linear_to_db(config.get_value(OptionsConstants.section_name, OptionsConstants.music_volume_key_name, 1))
 	var fullscreen = config.get_value(OptionsConstants.section_name, OptionsConstants.fullscreen_key_name, false)
 	var render_scale = config.get_value(OptionsConstants.section_name, OptionsConstants.render_scale_key, 1)
+	var vsync = config.get_value(OptionsConstants.section_name, OptionsConstants.vsync_key, true)
 	
 	AudioServer.set_bus_volume_db(sfx_bus_index, sfx_volume)
 	AudioServer.set_bus_volume_db(music_bus_index, music_volume)
@@ -27,6 +28,11 @@ func load_settings():
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	
 	get_viewport().scaling_3d_scale = render_scale
+	
+	if vsync:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+	else:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 	
 func _ready():
 	load_settings()

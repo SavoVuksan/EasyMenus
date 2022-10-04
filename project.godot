@@ -39,3 +39,4 @@ window/size/fullscreen=true
 [rendering]
 
 scaling_3d/mode=1
+scaling_3d/fsr_sharpness=0.2
