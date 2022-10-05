@@ -40,3 +40,7 @@ The menu encorperates following functions
 * Access to the options menu
 * Back to main menu
 * Quit the game
+
+## How to use
+* Add the `options_constants.gd` and `startup_loader.gd` to the autoload of your project.
+* The order must be `options_constants` first then the `startup_loader` script
