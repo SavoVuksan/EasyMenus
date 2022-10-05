@@ -23,6 +23,8 @@ func go_back():
 
 # Called from outside initializes the options menu
 func on_open():
+	sfx_volume_slider.grab_focus()
+	
 	sfx_bus_index = AudioServer.get_bus_index(OptionsConstants.sfx_bus_name)
 	music_bus_index = AudioServer.get_bus_index(OptionsConstants.music_bus_name)
 	

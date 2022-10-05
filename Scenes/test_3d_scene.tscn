@@ -44,5 +44,3 @@ font_size = 64
 
 [node name="PauseMenu" parent="." instance=ExtResource("1_8v2cp")]
 visible = false
-grow_horizontal = 2
-grow_vertical = 2

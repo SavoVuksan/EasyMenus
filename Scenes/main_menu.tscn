@@ -40,11 +40,16 @@ offset_right = 350.0
 offset_bottom = 101.0
 
 [node name="StartGameButton" type="Button" parent="Content"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2i(350, 0)
 offset_top = 116.0
 offset_right = 350.0
 offset_bottom = 166.0
 size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../OptionsButton")
+focus_next = NodePath("../OptionsButton")
+focus_previous = NodePath("../QuitButton")
 theme_override_font_sizes/font_size = 30
 text = "Start"
 
@@ -54,6 +59,10 @@ offset_top = 181.0
 offset_right = 350.0
 offset_bottom = 231.0
 size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../StartGameButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath("../StartGameButton")
 theme_override_font_sizes/font_size = 30
 text = "Options"
 
@@ -63,6 +72,10 @@ offset_top = 246.0
 offset_right = 350.0
 offset_bottom = 296.0
 size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../OptionsButton")
+focus_neighbor_bottom = NodePath("../StartGameButton")
+focus_next = NodePath("../StartGameButton")
+focus_previous = NodePath("../OptionsButton")
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 

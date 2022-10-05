@@ -39,6 +39,7 @@ offset_right = 800.0
 offset_bottom = 101.0
 
 [node name="ResumeGameButton" type="Button" parent="Content"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2i(350, 0)
 layout_mode = 2
 offset_left = 225.0

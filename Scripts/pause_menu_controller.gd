@@ -3,6 +3,7 @@ signal resume
 
 @onready var content : VBoxContainer = $%Content
 @onready var options_menu: OptionsMenuController = $%OptionsMenu
+@onready var resume_game_button: Button = $%ResumeGameButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +18,7 @@ func open_pause_menu():
 	#Stops game and shows pause menu
 	get_tree().paused = true
 	show()
+	resume_game_button.grab_focus()
 	
 func close_pause_menu():
 	get_tree().paused = false
@@ -46,6 +48,7 @@ func _on_options_button_pressed():
 func _on_options_menu_close():
 	options_menu.hide()
 	content.show()
+	resume_game_button.grab_focus()
 
 
 func _on_quit_button_pressed():
