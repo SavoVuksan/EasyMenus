@@ -44,3 +44,4 @@ The menu encorperates following functions
 ## How to use
 * Add the `options_constants.gd` and `startup_loader.gd` to the autoload of your project.
 * The order must be `options_constants` first then the `startup_loader` script
+* For the Audio Sliders to work properly you need to create 2 Audio Busses one called `SFX` and the other called `Music` 
