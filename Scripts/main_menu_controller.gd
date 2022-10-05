@@ -19,8 +19,3 @@ func close_options():
 	content.show();
 	start_game_button.grab_focus()
 	options_menu.hide()
-
-
-# Just a test remove when not needed anymore
-func load_3d_scene():
-	get_tree().change_scene_to_file("res://Scenes/test_3d_scene.tscn")
