@@ -20,7 +20,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="TemplateUI"
+config/name="TemplateMenus"
+config/description="This plugin adds a basic main, options and pause menu to your project."
 run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.svg"
