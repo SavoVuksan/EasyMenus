@@ -25,16 +25,6 @@ func close_pause_menu():
 	hide()
 	emit_signal("resume")
 
-# Just to test Pause Menu Remove when not needed anymore
-func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_ESCAPE:
-			if !visible:
-				open_pause_menu()
-			else:
-				close_pause_menu()
-
-
 func _on_resume_game_button_pressed():
 	close_pause_menu()
 

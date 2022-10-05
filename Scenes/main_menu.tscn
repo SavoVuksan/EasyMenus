@@ -2,7 +2,20 @@
 
 [ext_resource type="Script" path="res://Scripts/main_menu_controller.gd" id="1_00qpk"]
 [ext_resource type="PackedScene" uid="uid://ifbncut80b7x" path="res://Scenes/options_menu.tscn" id="2_5k7rh"]
-[ext_resource type="Script" path="res://Scripts/FPS.gd" id="3_6j1pc"]
+
+[sub_resource type="GDScript" id="GDScript_d3yrm"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	text = str(Engine.get_frames_per_second(),\" FPS\")
+"
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -87,7 +100,7 @@ visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 text = "60 FPS"
-script = ExtResource("3_6j1pc")
+script = SubResource("GDScript_d3yrm")
 
 [connection signal="pressed" from="Content/StartGameButton" to="." method="load_3d_scene"]
 [connection signal="pressed" from="Content/OptionsButton" to="." method="open_options"]
