@@ -1,7 +1,7 @@
 # Godot Menu Template
 This plugin adds a basic main, options and pause menu to your project.
 ## Intended Use
-Its intended to be used during gamejams to save some time on menus which is nice to have but most of the time not a priority. But you can also use it in a regular project as a temporary menu or just as the full thing what ever your heart pleases.
+Its intended to be used during gamejams to save some time on menus. Menus are nice to have but most of the time not a priority at gamejames. So here we come to help. You can also use it in a regular project as a temporary menu or just as the full thing. Use it as what ever your heart pleases.
 ## Features
 * Keyboard/Gamepad support
 * Autoloading of settings on startup
