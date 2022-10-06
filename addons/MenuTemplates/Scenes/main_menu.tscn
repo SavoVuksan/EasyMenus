@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://yla45juq1i8g"]
+[gd_scene load_steps=3 format=3 uid="uid://cebf7apphumb1"]
 
-[ext_resource type="Script" path="res://Scripts/main_menu_controller.gd" id="1_00qpk"]
-[ext_resource type="PackedScene" uid="uid://ifbncut80b7x" path="res://Scenes/options_menu.tscn" id="2_5k7rh"]
+[ext_resource type="Script" path="res://addons/MenuTemplates/Scripts/main_menu_controller.gd" id="1_2ebsf"]
+[ext_resource type="PackedScene" uid="uid://ct7ban0xih0ft" path="res://addons/MenuTemplates/Scenes/options_menu.tscn" id="2_5llu1"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_00qpk")
+script = ExtResource("1_2ebsf")
 
 [node name="Content" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
@@ -84,7 +84,7 @@ focus_previous = NodePath("../OptionsButton")
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 
-[node name="OptionsMenu" parent="." instance=ExtResource("2_5k7rh")]
+[node name="OptionsMenu" parent="." instance=ExtResource("2_5llu1")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1

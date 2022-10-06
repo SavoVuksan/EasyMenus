@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b450wqs4uncpv"]
+[gd_scene load_steps=3 format=3 uid="uid://d3fcj7j1q7jib"]
 
-[ext_resource type="Script" path="res://Scripts/pause_menu_controller.gd" id="1_1jkuo"]
-[ext_resource type="PackedScene" uid="uid://ifbncut80b7x" path="res://Scenes/options_menu.tscn" id="2_je2xq"]
+[ext_resource type="Script" path="res://addons/MenuTemplates/Scripts/pause_menu_controller.gd" id="1_b0xlk"]
+[ext_resource type="PackedScene" uid="uid://daghg8kj7ocfe" path="res://addons/MenuTemplates/Scenes/options_menu.tscn" id="2_rjgu0"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -11,10 +11,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_1jkuo")
+script = ExtResource("1_b0xlk")
 
 [node name="Content" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,6 +24,7 @@ grow_vertical = 2
 theme_override_constants/separation = 15
 
 [node name="PauseMenuLabel" type="Label" parent="Content"]
+layout_mode = 2
 offset_right = 800.0
 offset_bottom = 66.0
 theme_override_font_sizes/font_size = 45
@@ -31,6 +33,7 @@ horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="Content"]
 custom_minimum_size = Vector2i(0, 20)
+layout_mode = 2
 offset_top = 81.0
 offset_right = 800.0
 offset_bottom = 101.0
@@ -38,6 +41,7 @@ offset_bottom = 101.0
 [node name="ResumeGameButton" type="Button" parent="Content"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2i(350, 0)
+layout_mode = 2
 offset_left = 225.0
 offset_top = 116.0
 offset_right = 575.0
@@ -48,6 +52,7 @@ text = "Resume"
 
 [node name="OptionsButton" type="Button" parent="Content"]
 custom_minimum_size = Vector2i(350, 0)
+layout_mode = 2
 offset_left = 225.0
 offset_top = 181.0
 offset_right = 575.0
@@ -58,6 +63,7 @@ text = "Options"
 
 [node name="BackToMenuButton" type="Button" parent="Content"]
 custom_minimum_size = Vector2i(350, 0)
+layout_mode = 2
 offset_left = 225.0
 offset_top = 246.0
 offset_right = 575.0
@@ -68,6 +74,7 @@ text = "Back to Main Menu"
 
 [node name="QuitButton" type="Button" parent="Content"]
 custom_minimum_size = Vector2i(350, 0)
+layout_mode = 2
 offset_left = 225.0
 offset_top = 311.0
 offset_right = 575.0
@@ -76,12 +83,12 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 
-[node name="OptionsMenu" parent="." instance=ExtResource("2_je2xq")]
+[node name="OptionsMenu" parent="." instance=ExtResource("2_rjgu0")]
 unique_name_in_owner = true
 visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="Content/ResumeGameButton" to="." method="_on_resume_game_button_pressed"]
 [connection signal="pressed" from="Content/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Content/BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
 [connection signal="pressed" from="Content/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="close" from="OptionsMenu" to="." method="_on_options_menu_close"]

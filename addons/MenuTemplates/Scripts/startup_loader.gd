@@ -1,7 +1,6 @@
 extends Node
 #Loads options like volume and graphic options on game startup
 
-var option_constants = preload("res://Scripts/options_constants.gd")
 var config = ConfigFile.new()
 
 # Loads settings from config file. Loads with standard values if settings not 
