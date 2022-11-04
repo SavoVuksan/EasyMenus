@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3fcj7j1q7jib"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://addons/MenuTemplates/Scripts/pause_menu_controller.gd" id="1_b0xlk"]
-[ext_resource type="PackedScene" uid="uid://daghg8kj7ocfe" path="res://addons/MenuTemplates/Scenes/options_menu.tscn" id="2_rjgu0"]
+[ext_resource type="Script" path="res://Templates/MenuTemplates/Scripts/pause_menu_controller.gd" id="1_b0xlk"]
+[ext_resource type="PackedScene" uid="uid://ct7ban0xih0ft" path="res://Templates/MenuTemplates/Scenes/options_menu.tscn" id="2_rjgu0"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3

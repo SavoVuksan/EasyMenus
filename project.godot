@@ -12,7 +12,7 @@ _global_script_classes=[{
 "base": "Control",
 "class": &"OptionsMenuController",
 "language": &"GDScript",
-"path": "res://addons/MenuTemplates/Scripts/options_menu_controller.gd"
+"path": "res://Templates/MenuTemplates/Scripts/options_menu_controller.gd"
 }]
 _global_script_class_icons={
 "OptionsMenuController": ""
@@ -22,24 +22,28 @@ _global_script_class_icons={
 
 config/name="TemplateMenus"
 config/description="This plugin adds a basic main, options and pause menu to your project."
-run/main_scene="res://addons/MenuTemplates/Scenes/main_menu.tscn"
+run/main_scene="res://Templates/MenuTemplates/Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.svg"
 
 [audio]
 
-buses/default_bus_layout="res://addons/MenuTemplates/default_bus_layout.tres"
+buses/default_bus_layout="res://Templates/MenuTemplates/default_bus_layout.tres"
 
 [autoload]
 
-OptionsConstants="*res://addons/MenuTemplates/Scripts/options_constants.gd"
-StartupLoader="*res://addons/MenuTemplates/Scripts/startup_loader.gd"
+OptionsConstants="*res://Templates/MenuTemplates/Scripts/options_constants.gd"
+StartupLoader="*res://Templates/MenuTemplates/Scripts/startup_loader.gd"
 
 [display]
 
 window/size/viewport_width=800
 window/size/viewport_height=600
 window/size/fullscreen=true
+
+[dotnet]
+
+project/assembly_name="TemplateMenus"
 
 [editor_plugins]
 
