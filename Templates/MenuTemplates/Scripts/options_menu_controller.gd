@@ -1,5 +1,4 @@
 extends Control
-class_name OptionsMenuController
 signal  close
 
 @onready var sfx_volume_slider : HSlider = $%SFXVolumeSlider
@@ -123,3 +122,8 @@ func set_msaa(mode, index):
 			get_viewport().set(mode,Viewport.MSAA_4X)
 		3:
 			get_viewport().set(mode,Viewport.MSAA_8X)
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel") && visible:
+		accept_event()
+		go_back()

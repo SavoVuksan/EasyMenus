@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://uj4x60wtht"]
+[gd_scene load_steps=4 format=3 uid="uid://uj4x60wtht"]
 
 [ext_resource type="Script" path="res://Templates/MenuTemplates/Scripts/main_menu_controller.gd" id="1_2ebsf"]
-[ext_resource type="PackedScene" path="res://Templates/MenuTemplates/Scenes/options_menu.tscn" id="2_5llu1"]
+[ext_resource type="PackedScene" uid="uid://cku8ie2a5s4v8" path="res://Templates/MenuTemplates/Scenes/options_menu.tscn" id="2_5llu1"]
+[ext_resource type="PackedScene" uid="uid://crgbut0gddd7b" path="res://Templates/MenuTemplates/Nodes/sound_manager.tscn" id="2_au514"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,6 +12,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2ebsf")
+
+[node name="SoundManager" parent="." instance=ExtResource("2_au514")]
 
 [node name="Content" type="VBoxContainer" parent="."]
 unique_name_in_owner = true

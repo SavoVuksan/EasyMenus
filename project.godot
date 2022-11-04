@@ -8,16 +8,6 @@
 
 config_version=5
 
-_global_script_classes=[{
-"base": "Control",
-"class": &"OptionsMenuController",
-"language": &"GDScript",
-"path": "res://Templates/MenuTemplates/Scripts/options_menu_controller.gd"
-}]
-_global_script_class_icons={
-"OptionsMenuController": ""
-}
-
 [application]
 
 config/name="TemplateMenus"

@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://crgbut0gddd7b"]
+
+[ext_resource type="Script" path="res://Templates/MenuTemplates/Scripts/sound_manager.gd" id="1_enflk"]
+[ext_resource type="AudioStream" uid="uid://bbjl85bxruxjo" path="res://Templates/MenuTemplates/SFX/focus.ogg" id="2_4etqi"]
+[ext_resource type="AudioStream" uid="uid://c72tj5lbhoyvc" path="res://Templates/MenuTemplates/SFX/select.ogg" id="3_4dk35"]
+[ext_resource type="AudioStream" uid="uid://cui1jx7g8yru0" path="res://Templates/MenuTemplates/SFX/back.ogg" id="4_7w41r"]
+
+[node name="SoundManager" type="Node" node_paths=PackedStringArray("ui")]
+script = ExtResource("1_enflk")
+focus_sound = ExtResource("2_4etqi")
+select_sound = ExtResource("3_4dk35")
+back_sound = ExtResource("4_7w41r")
+ui = NodePath("..")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
