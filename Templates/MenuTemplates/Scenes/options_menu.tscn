@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cku8ie2a5s4v8"]
+[gd_scene load_steps=4 format=3 uid="uid://cku8ie2a5s4v8"]
 
 [ext_resource type="Script" path="res://Templates/MenuTemplates/Scripts/options_menu_controller.gd" id="1_ug1ew"]
+[ext_resource type="Script" path="res://Templates/MenuTemplates/Scripts/option_button_input_propagator.gd" id="2_1voal"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x77mt"]
 
@@ -78,8 +79,9 @@ unique_name_in_owner = true
 offset_top = 42.0
 offset_right = 542.0
 offset_bottom = 58.0
+mouse_force_pass_scroll_events = false
 max_value = 1.0
-step = 0.01
+step = 0.1
 
 [node name="MusicVolumeLabel" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 offset_top = 62.0
@@ -94,8 +96,9 @@ unique_name_in_owner = true
 offset_top = 104.0
 offset_right = 542.0
 offset_bottom = 120.0
+mouse_force_pass_scroll_events = false
 max_value = 1.0
-step = 0.01
+step = 0.1
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 offset_top = 241.0
@@ -152,6 +155,7 @@ unique_name_in_owner = true
 offset_top = 42.0
 offset_right = 542.0
 offset_bottom = 58.0
+mouse_force_pass_scroll_events = false
 min_value = 0.25
 max_value = 2.0
 step = 0.05
@@ -202,6 +206,7 @@ popup/item_2/text = "4x"
 popup/item_2/id = 2
 popup/item_3/text = "8x"
 popup/item_3/id = 3
+script = ExtResource("2_1voal")
 
 [node name="AntiAliasing3DLabel" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer3/VBoxContainer"]
 offset_top = 89.0
@@ -227,6 +232,7 @@ popup/item_2/text = "4x"
 popup/item_2/id = 2
 popup/item_3/text = "8x"
 popup/item_3/id = 3
+script = ExtResource("2_1voal")
 
 [node name="HSeparator3" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 offset_top = 673.0

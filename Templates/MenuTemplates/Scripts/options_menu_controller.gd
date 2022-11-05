@@ -56,9 +56,6 @@ func save_options():
 func load_options():
 	var err = config.load(OptionsConstants.config_file_name)
 	
-	if err != OK:
-		return
-	
 	var sfx_volume = config.get_value(OptionsConstants.section_name, OptionsConstants.sfx_volume_key_name, 1)
 	var music_volume = config.get_value(OptionsConstants.section_name, OptionsConstants.music_volume_key_name, 1)
 	var fullscreen = config.get_value(OptionsConstants.section_name, OptionsConstants.fullscreen_key_name, false)
@@ -66,7 +63,7 @@ func load_options():
 	var vsync = config.get_value(OptionsConstants.section_name, OptionsConstants.vsync_key, true)
 	var msaa_2d = config.get_value(OptionsConstants.section_name, OptionsConstants.msaa_2d_key, 0)
 	var msaa_3d = config.get_value(OptionsConstants.section_name, OptionsConstants.msaa_3d_key, 0)
-	
+
 	sfx_volume_slider.value = sfx_volume
 	music_volume_slider.value = music_volume
 	fullscreen_check_button.button_pressed = fullscreen
