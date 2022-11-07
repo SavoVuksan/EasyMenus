@@ -4,16 +4,6 @@ var echo_event = null
 
 @onready var echo_timer : Timer = $EchoTimer
 @onready var waiting_timer : Timer = $WaitingTimer
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	for joypad_id in Input.get_connected_joypads():
-		print(Input.get_joy_name(joypad_id), joypad_id)
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func _input(event):
 	if event is InputEventJoypadButton:
