@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Templates/MenuTemplates/Scripts/controller_echo_input_generator.gd" id="1_8rdph"]
 
 [node name="ControllerEchoInputGenerator" type="Node"]
+process_mode = 3
 script = ExtResource("1_8rdph")
 
 [node name="EchoTimer" type="Timer" parent="."]
