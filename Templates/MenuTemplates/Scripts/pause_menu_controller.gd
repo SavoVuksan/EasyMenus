@@ -3,16 +3,8 @@ signal resume
 signal back_to_main_pressed
 
 @onready var content : VBoxContainer = $%Content
-@onready var options_menu = $%OptionsMenu
+@onready var options_menu : Control = $%OptionsMenu
 @onready var resume_game_button: Button = $%ResumeGameButton
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 	
 func open_pause_menu():
 	#Stops game and shows pause menu
@@ -49,6 +41,6 @@ func _on_back_to_menu_button_pressed():
 	emit_signal("back_to_main_pressed")
 
 func _input(event):
-	if event.is_action_pressed("ui_cancel"):
+	if (event.is_action_pressed("ui_cancel") or event.is_action_pressed("pause")) and visible and !options_menu.visible:
 		accept_event()
 		close_pause_menu()
