@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bhst33mklhvyt" path="res://Templates/MenuTemplates/Nodes/startup_loader.tscn" id="3_nyn02"]
 
 [node name="MenuTemplateManager" type="Node"]
+process_mode = 3
 script = ExtResource("1_bu3n2")
 
 [node name="StartupLoader" parent="." instance=ExtResource("3_nyn02")]
