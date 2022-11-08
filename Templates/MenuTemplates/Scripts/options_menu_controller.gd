@@ -1,8 +1,10 @@
 extends Control
 signal  close
 
-@onready var sfx_volume_slider : HSlider = $%SFXVolumeSlider
-@onready var music_volume_slider: HSlider = $%MusicVolumeSlider
+const HSliderWLabel = preload("res://Templates/MenuTemplates/Scripts/slider_w_labels.gd")
+
+@onready var sfx_volume_slider : HSliderWLabel = $%SFXVolumeSlider
+@onready var music_volume_slider: HSliderWLabel = $%MusicVolumeSlider
 @onready var fullscreen_check_button: CheckButton = $%FullscreenCheckButton
 @onready var render_scale_current_value_label: Label = $%RenderScaleCurrentValueLabel
 @onready var render_scale_slider: HSlider = $%RenderScaleSlider
@@ -22,7 +24,7 @@ func go_back():
 
 # Called from outside initializes the options menu
 func on_open():
-	sfx_volume_slider.grab_focus()
+	sfx_volume_slider.hslider.grab_focus()
 	
 	sfx_bus_index = AudioServer.get_bus_index(OptionsConstants.sfx_bus_name)
 	music_bus_index = AudioServer.get_bus_index(OptionsConstants.music_bus_name)
@@ -41,8 +43,8 @@ func set_volume(bus_index, value):
 	
 # Saves the options when the options menu is closed
 func save_options():
-	config.set_value(OptionsConstants.section_name,OptionsConstants.sfx_volume_key_name, sfx_volume_slider.value)
-	config.set_value(OptionsConstants.section_name, OptionsConstants.music_volume_key_name, music_volume_slider.value)
+	config.set_value(OptionsConstants.section_name,OptionsConstants.sfx_volume_key_name, sfx_volume_slider.hslider.value)
+	config.set_value(OptionsConstants.section_name, OptionsConstants.music_volume_key_name, music_volume_slider.hslider.value)
 	config.set_value(OptionsConstants.section_name, OptionsConstants.fullscreen_key_name, fullscreen_check_button.button_pressed)
 	config.set_value(OptionsConstants.section_name, OptionsConstants.render_scale_key, render_scale_slider.value);
 	config.set_value(OptionsConstants.section_name, OptionsConstants.vsync_key, vsync_check_button.button_pressed)
@@ -64,8 +66,8 @@ func load_options():
 	var msaa_2d = config.get_value(OptionsConstants.section_name, OptionsConstants.msaa_2d_key, 0)
 	var msaa_3d = config.get_value(OptionsConstants.section_name, OptionsConstants.msaa_3d_key, 0)
 
-	sfx_volume_slider.value = sfx_volume
-	music_volume_slider.value = music_volume
+	sfx_volume_slider.hslider.value = sfx_volume
+	music_volume_slider.hslider.value = music_volume
 	fullscreen_check_button.button_pressed = fullscreen
 	render_scale_slider.value = render_scale
 	

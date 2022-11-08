@@ -11,6 +11,5 @@ func _process(delta):
 	pass
 
 func propagate_input(event):
-	if ControllerEchoInputGenerator:
-		ControllerEchoInputGenerator._input(event)
-	# Input.parse_input_event(event)
+	if MenuTemplateManager.ControllerEchoInputGenerator:
+		MenuTemplateManager.ControllerEchoInputGenerator._input(event)

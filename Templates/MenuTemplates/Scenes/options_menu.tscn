@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq2tj56y0o0y2"]
+[gd_scene load_steps=7 format=3 uid="uid://bq2tj56y0o0y2"]
 
 [ext_resource type="Script" path="res://Templates/MenuTemplates/Scripts/options_menu_controller.gd" id="1_ug1ew"]
 [ext_resource type="Script" path="res://Templates/MenuTemplates/Scripts/option_button_input_propagator.gd" id="2_1voal"]
 [ext_resource type="Script" path="res://Templates/MenuTemplates/Scripts/follow_focus_center.gd" id="2_r0u05"]
+[ext_resource type="PackedScene" uid="uid://ylgk70wmw8ln" path="res://Templates/MenuTemplates/Nodes/slider_w_labels.tscn" id="3_qmmac"]
 [ext_resource type="PackedScene" uid="uid://crskdft6do8av" path="res://Templates/MenuTemplates/Nodes/gamepad_closable.tscn" id="4_c03a1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x77mt"]
@@ -17,7 +18,6 @@ grow_vertical = 2
 script = ExtResource("1_ug1ew")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,7 +29,6 @@ theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
-layout_mode = 2
 offset_left = 25.0
 offset_top = 25.0
 offset_right = 775.0
@@ -40,16 +39,14 @@ script = ExtResource("2_r0u05")
 transition_time = 0.15
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
-layout_mode = 2
 offset_right = 742.0
-offset_bottom = 781.0
+offset_bottom = 851.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 15
 
 [node name="OptionsTitle" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
 offset_right = 742.0
 offset_bottom = 66.0
 theme_override_font_sizes/font_size = 45
@@ -57,78 +54,81 @@ text = "Options"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 81.0
 offset_right = 742.0
 offset_bottom = 91.0
 theme_override_constants/separation = 10
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 106.0
 offset_right = 742.0
-offset_bottom = 226.0
+offset_bottom = 296.0
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_right = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
 offset_left = 100.0
 offset_right = 642.0
-offset_bottom = 120.0
+offset_bottom = 190.0
 
-[node name="SFXVolumeLabel" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
+[node name="SFXVolumeSlider" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_qmmac")]
+unique_name_in_owner = true
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_right = 542.0
-offset_bottom = 38.0
-theme_override_font_sizes/font_size = 25
+offset_bottom = 93.0
+grow_horizontal = 1
+grow_vertical = 1
+title = "SFX Volume"
+
+[node name="Title" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SFXVolumeSlider" index="0"]
+offset_right = 542.0
 text = "SFX Volume"
-horizontal_alignment = 1
 
-[node name="SFXVolumeSlider" type="HSlider" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="HSlider" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SFXVolumeSlider" index="1"]
+offset_right = 542.0
+step = 10.0
+
+[node name="CurrentValue" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SFXVolumeSlider" index="2"]
+offset_right = 542.0
+
+[node name="MusicVolumeSlider" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_qmmac")]
 unique_name_in_owner = true
-layout_mode = 2
-offset_top = 42.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 97.0
 offset_right = 542.0
-offset_bottom = 58.0
-mouse_force_pass_scroll_events = false
-max_value = 1.0
-step = 0.1
+offset_bottom = 190.0
+grow_horizontal = 1
+grow_vertical = 1
+title = "Music Volume"
 
-[node name="MusicVolumeLabel" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-offset_top = 62.0
+[node name="Title" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/MusicVolumeSlider" index="0"]
 offset_right = 542.0
-offset_bottom = 100.0
-theme_override_font_sizes/font_size = 25
 text = "Music Volume"
-horizontal_alignment = 1
 
-[node name="MusicVolumeSlider" type="HSlider" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-offset_top = 104.0
+[node name="HSlider" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/MusicVolumeSlider" index="1"]
 offset_right = 542.0
-offset_bottom = 120.0
-mouse_force_pass_scroll_events = false
-max_value = 1.0
-step = 0.1
+step = 10.0
+
+[node name="CurrentValue" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/MusicVolumeSlider" index="2"]
+offset_right = 542.0
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-offset_top = 241.0
+offset_top = 311.0
 offset_right = 742.0
-offset_bottom = 251.0
+offset_bottom = 321.0
 theme_override_constants/separation = 10
 
 [node name="FullscreenCheckButton" type="CheckButton" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
 offset_left = 271.0
-offset_top = 266.0
+offset_top = 336.0
 offset_right = 471.0
-offset_bottom = 309.0
+offset_bottom = 379.0
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 25
 text = "Fullscreen"
@@ -136,26 +136,23 @@ text = "Fullscreen"
 [node name="VSyncCheckButton" type="CheckButton" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
 offset_left = 271.0
-offset_top = 324.0
+offset_top = 394.0
 offset_right = 471.0
-offset_bottom = 367.0
+offset_bottom = 437.0
 size_flags_horizontal = 4
 tooltip_text = "Syncs Games Frame Rate with Displays Refresh Rate"
 theme_override_font_sizes/font_size = 25
 text = "V-Sync"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-offset_top = 382.0
+offset_top = 452.0
 offset_right = 742.0
-offset_bottom = 475.0
+offset_bottom = 545.0
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_right = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2"]
-layout_mode = 2
 offset_left = 100.0
 offset_right = 642.0
 offset_bottom = 93.0
@@ -163,7 +160,6 @@ tooltip_text = "Scale Less than 1 to get performance improve.
 Scale to more than 1 to improve image quality."
 
 [node name="RenderScaleLabel" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
-layout_mode = 2
 offset_right = 542.0
 offset_bottom = 38.0
 theme_override_font_sizes/font_size = 25
@@ -172,7 +168,6 @@ horizontal_alignment = 1
 
 [node name="RenderScaleSlider" type="HSlider" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
 offset_top = 42.0
 offset_right = 542.0
 offset_bottom = 58.0
@@ -184,7 +179,6 @@ value = 1.0
 
 [node name="RenderScaleCurrentValueLabel" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
 offset_top = 62.0
 offset_right = 542.0
 offset_bottom = 93.0
@@ -193,22 +187,19 @@ text = "1"
 horizontal_alignment = 1
 
 [node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-offset_top = 490.0
+offset_top = 560.0
 offset_right = 742.0
-offset_bottom = 658.0
+offset_bottom = 728.0
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_right = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer3"]
-layout_mode = 2
 offset_left = 100.0
 offset_right = 642.0
 offset_bottom = 168.0
 theme_override_constants/separation = 10
 
 [node name="AntiAliasing2DLabel" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer3/VBoxContainer"]
-layout_mode = 2
 offset_right = 542.0
 offset_bottom = 38.0
 theme_override_font_sizes/font_size = 25
@@ -217,7 +208,6 @@ horizontal_alignment = 1
 
 [node name="AntiAliasing2DOptionButton" type="OptionButton" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer3/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
 offset_top = 48.0
 offset_right = 542.0
 offset_bottom = 79.0
@@ -237,7 +227,6 @@ script = ExtResource("2_1voal")
 [node name="GamepadClosable" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer3/VBoxContainer/AntiAliasing2DOptionButton" instance=ExtResource("4_c03a1")]
 
 [node name="AntiAliasing3DLabel" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer3/VBoxContainer"]
-layout_mode = 2
 offset_top = 89.0
 offset_right = 542.0
 offset_bottom = 127.0
@@ -247,7 +236,6 @@ horizontal_alignment = 1
 
 [node name="AntiAliasing3DOptionButton" type="OptionButton" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer3/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
 offset_top = 137.0
 offset_right = 542.0
 offset_bottom = 168.0
@@ -267,20 +255,18 @@ script = ExtResource("2_1voal")
 [node name="GamepadClosable" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer3/VBoxContainer/AntiAliasing3DOptionButton" instance=ExtResource("4_c03a1")]
 
 [node name="HSeparator3" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-offset_top = 673.0
+offset_top = 743.0
 offset_right = 742.0
-offset_bottom = 723.0
+offset_bottom = 793.0
 theme_override_constants/separation = 50
 theme_override_styles/separator = SubResource("StyleBoxEmpty_x77mt")
 
 [node name="BackButton" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(350, 0)
-layout_mode = 2
 offset_left = 196.0
-offset_top = 738.0
+offset_top = 808.0
 offset_right = 546.0
-offset_bottom = 781.0
+offset_bottom = 851.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -296,3 +282,6 @@ text = "Back"
 [connection signal="item_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer3/VBoxContainer/AntiAliasing2DOptionButton" to="." method="_on_anti_aliasing_2d_option_button_item_selected"]
 [connection signal="item_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer3/VBoxContainer/AntiAliasing3DOptionButton" to="." method="_on_anti_aliasing_3d_option_button_item_selected"]
 [connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/BackButton" to="." method="go_back"]
+
+[editable path="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SFXVolumeSlider"]
+[editable path="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/MusicVolumeSlider"]

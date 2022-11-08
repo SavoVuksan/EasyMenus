@@ -40,7 +40,6 @@ func load_settings():
 	
 func _ready():
 	load_settings()
-	pass
 
 func set_msaa(mode, index):
 	match index:
