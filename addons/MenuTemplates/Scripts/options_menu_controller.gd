@@ -1,7 +1,7 @@
 extends Control
 signal  close
 
-const HSliderWLabel = preload("res://Templates/MenuTemplates/Scripts/slider_w_labels.gd")
+const HSliderWLabel = preload("res://addons/MenuTemplates/Scripts/slider_w_labels.gd")
 
 @onready var sfx_volume_slider : HSliderWLabel = $%SFXVolumeSlider
 @onready var music_volume_slider: HSliderWLabel = $%MusicVolumeSlider

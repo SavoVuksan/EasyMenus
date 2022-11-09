@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://crskdft6do8av"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Templates/MenuTemplates/Scripts/gamepad_closeable.gd" id="1_akg2c"]
+[ext_resource type="Script" path="res://addons/MenuTemplates/Scripts/gamepad_closeable.gd" id="1_akg2c"]
 
 [node name="GamepadClosable" type="Node"]
 editor_description = "Add this node as a child of a OptionButton.

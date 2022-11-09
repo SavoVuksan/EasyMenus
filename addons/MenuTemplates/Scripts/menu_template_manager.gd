@@ -1,6 +1,6 @@
 extends Node
-const OptionConstants = preload("res://Templates/MenuTemplates/Scripts/options_constants.gd")
-const InputMapUpdater = preload("res://Templates/MenuTemplates/Scripts/input_map_updater.gd")
+const OptionConstants = preload("res://addons/MenuTemplates/Scripts/options_constants.gd")
+const InputMapUpdater = preload("res://addons/MenuTemplates/Scripts/input_map_updater.gd")
 
 @onready var ControllerEchoInputGenerator = $ControllerEchoInputGenerator
 @onready var startup_loader = $StartupLoader

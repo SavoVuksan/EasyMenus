@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://uj4x60wtht"]
+[gd_scene load_steps=3 format=3 uid="uid://cbxyxy87sgvfu"]
 
-[ext_resource type="Script" path="res://Templates/MenuTemplates/Scripts/main_menu_controller.gd" id="1_2ebsf"]
-[ext_resource type="PackedScene" uid="uid://bq2tj56y0o0y2" path="res://Templates/MenuTemplates/Scenes/options_menu.tscn" id="2_5llu1"]
+[ext_resource type="Script" path="res://addons/MenuTemplates/Scripts/main_menu_controller.gd" id="1_lbw7r"]
+[ext_resource type="PackedScene" path="res://addons/MenuTemplates/Scenes/options_menu.tscn" id="2_pwqpr"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,10 +10,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_2ebsf")
+script = ExtResource("1_lbw7r")
 
 [node name="Content" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -26,6 +27,7 @@ theme_override_constants/separation = 15
 metadata/_edit_group_ = true
 
 [node name="Title" type="Label" parent="Content"]
+layout_mode = 2
 offset_right = 350.0
 offset_bottom = 66.0
 theme_override_font_sizes/font_size = 45
@@ -34,6 +36,7 @@ horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="Content"]
 custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
 offset_top = 81.0
 offset_right = 350.0
 offset_bottom = 101.0
@@ -41,6 +44,7 @@ offset_bottom = 101.0
 [node name="StartGameButton" type="Button" parent="Content"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
 offset_top = 116.0
 offset_right = 350.0
 offset_bottom = 166.0
@@ -54,6 +58,7 @@ text = "Start"
 
 [node name="OptionsButton" type="Button" parent="Content"]
 custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
 offset_top = 181.0
 offset_right = 350.0
 offset_bottom = 231.0
@@ -67,6 +72,7 @@ text = "Options"
 
 [node name="QuitButton" type="Button" parent="Content"]
 custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
 offset_top = 246.0
 offset_right = 350.0
 offset_bottom = 296.0
@@ -78,9 +84,10 @@ focus_previous = NodePath("../OptionsButton")
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 
-[node name="OptionsMenu" parent="." instance=ExtResource("2_5llu1")]
+[node name="OptionsMenu" parent="." instance=ExtResource("2_pwqpr")]
 unique_name_in_owner = true
 visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="Content/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="Content/OptionsButton" to="." method="open_options"]
