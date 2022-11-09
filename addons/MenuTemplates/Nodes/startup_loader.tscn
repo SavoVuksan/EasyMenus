@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://cqjvragrgvn21"]
 
 [ext_resource type="Script" path="res://addons/MenuTemplates/Scripts/startup_loader.gd" id="1_kuh74"]
 
