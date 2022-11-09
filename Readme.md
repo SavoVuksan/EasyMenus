@@ -35,4 +35,4 @@ You can also connect the `back_to_main_pressed signal` to a method that returns 
 
 # How to use
 * Add the `res://addons/MenuTemplates/Nodes/menu_templates_manager.tscn` scene to the autoload of your project.
-* For the Audio Sliders to work properly you need to create 2 Audio Busses one called `SFX` and the other called `Music` in your audio bus layout file
+* For the Audio Sliders to work properly you need to create 2 Audio Buses one called `SFX` and the other called `Music` in your audio bus layout file
