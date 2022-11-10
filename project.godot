@@ -24,6 +24,7 @@ config/name="EasyMenus"
 config/description="This plugin adds a basic main, options and pause menu to your project."
 run/main_scene="res://addons/EasyMenus/Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.0")
+config/icon="res://EasyMenusLogo.png"
 
 [audio]
 
