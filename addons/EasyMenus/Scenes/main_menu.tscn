@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbxyxy87sgvfu"]
+[gd_scene load_steps=3 format=3 uid="uid://dq6tvhqcy2aps"]
 
-[ext_resource type="Script" path="res://addons/MenuTemplates/Scripts/main_menu_controller.gd" id="1_lbw7r"]
-[ext_resource type="PackedScene" uid="uid://cyghmdy64i3xb" path="res://addons/MenuTemplates/Scenes/options_menu.tscn" id="2_pwqpr"]
+[ext_resource type="Script" path="res://addons/EasyMenus/Scripts/main_menu_controller.gd" id="1_lbw7r"]
+[ext_resource type="PackedScene" uid="uid://qlskttl1wjr7" path="res://addons/EasyMenus/Scenes/options_menu.tscn" id="2_pwqpr"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3

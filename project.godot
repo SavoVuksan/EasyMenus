@@ -12,7 +12,7 @@ _global_script_classes=[{
 "base": "Node",
 "class": &"OptionsConstants",
 "language": &"GDScript",
-"path": "res://addons/MenuTemplates/Scripts/options_constants.gd"
+"path": "res://addons/EasyMenus/Scripts/options_constants.gd"
 }]
 _global_script_class_icons={
 "OptionsConstants": ""
@@ -20,19 +20,18 @@ _global_script_class_icons={
 
 [application]
 
-config/name="TemplateMenus"
+config/name="EasyMenus"
 config/description="This plugin adds a basic main, options and pause menu to your project."
-run/main_scene="res://addons/MenuTemplates/Scenes/main_menu.tscn"
+run/main_scene="res://addons/EasyMenus/Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.0")
-config/icon="res://icon.svg"
 
 [audio]
 
-buses/default_bus_layout="res://addons/MenuTemplates/default_bus_layout.tres"
+buses/default_bus_layout="res://addons/EasyMenus/default_bus_layout.tres"
 
 [autoload]
 
-MenuTemplateManager="*res://addons/MenuTemplates/Nodes/menu_template_manager.tscn"
+MenuTemplateManager="*res://addons/EasyMenus/Nodes/menu_template_manager.tscn"
 
 [display]
 

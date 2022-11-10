@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://dyfwp0vhgfjd7"]
 
-[ext_resource type="Script" path="res://addons/MenuTemplates/Scripts/slider_w_labels.gd" id="1_fn6ep"]
+[ext_resource type="Script" path="res://addons/EasyMenus/Scripts/slider_w_labels.gd" id="1_fn6ep"]
 
 [node name="SliderWLabels" type="VBoxContainer"]
 anchors_preset = 15
@@ -13,6 +13,7 @@ show_percentage = true
 title = "Slider"
 
 [node name="Title" type="Label" parent="."]
+layout_mode = 2
 offset_right = 800.0
 offset_bottom = 38.0
 theme_override_font_sizes/font_size = 25
@@ -20,11 +21,13 @@ text = "Slider"
 horizontal_alignment = 1
 
 [node name="HSlider" type="HSlider" parent="."]
+layout_mode = 2
 offset_top = 42.0
 offset_right = 800.0
 offset_bottom = 58.0
 
 [node name="CurrentValue" type="Label" parent="."]
+layout_mode = 2
 offset_top = 62.0
 offset_right = 800.0
 offset_bottom = 93.0
