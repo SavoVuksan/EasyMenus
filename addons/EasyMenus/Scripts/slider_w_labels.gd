@@ -1,5 +1,7 @@
 @tool
 extends VBoxContainer
+class_name SliderWithLabels
+
 signal value_changed(value: float)
 
 @onready var title_label : Label = $Title
